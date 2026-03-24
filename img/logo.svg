@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 900 320">
+  <!-- Generator: Adobe Illustrator 30.2.1, SVG Export Plug-In . SVG Version: 2.1.1 Build 1)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #606;
+        opacity: .9;
+      }
+
+      .st0, .st1, .st2, .st3 {
+        isolation: isolate;
+      }
+
+      .st0, .st3, .st4, .st5 {
+        stroke: #fff;
+      }
+
+      .st1 {
+        fill: #930c0c;
+        font-family: BellMT, 'Bell MT';
+        font-size: 60px;
+      }
+
+      .st3 {
+        font-family: BellMTBold, 'Bell MT';
+        font-size: 90px;
+        letter-spacing: .02em;
+        stroke-miterlimit: 10;
+      }
+
+      .st4 {
+        fill: #555;
+      }
+
+      .st5 {
+        fill: #ffd93d;
+      }
+
+      .st6 {
+        fill: none;
+        stroke: #606;
+        stroke-linecap: round;
+        stroke-width: 5px;
+      }
+
+      .st7 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="399.65" y1="196.2" x2="509.49" y2="196.2" gradientTransform="translate(59.37 403.53) rotate(-9.53) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#606"/>
+      <stop offset="1" stop-color="#606" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g>
+    <path class="st0" d="M108.58,116.17c25-25,66.67-8.33,66.67,25,25,8.33,25,50-8.33,58.34,0,33.34-41.67,50-66.67,25-25,16.67-58.34,0-58.34-25-33.34-8.33-25-50,8.33-58.34,0-33.34,33.34-50,58.34-25Z"/>
+    <circle class="st5" cx="138.67" cy="147.56" r="25"/>
+    <rect class="st4" x="130.67" y="170.67" width="16" height="18" rx="4" ry="4"/>
+  </g>
+  <g class="st2">
+    <path class="st7" d="M493.71,170.05l-26.26,4.41c-.7-3.76-1.12-6.06-1.26-6.88-1.43-8.51-1.2-15.75.7-21.71,1.89-5.96,6.48-13.09,13.78-21.37,7.29-8.28,11.58-13.63,12.87-16.03,1.97-3.79,2.62-7.71,1.94-11.76-.94-5.63-4-10.07-9.17-13.34-5.17-3.26-11.57-4.25-19.19-2.97s-13.14,4.36-17.38,9.38-6.57,11.97-6.98,20.86l-27.12,1.16c-1.31-12.41,2.17-23.73,10.45-33.94,8.27-10.21,20.3-16.64,36.09-19.29,16.61-2.79,30.55-.66,41.83,6.37,11.27,7.04,17.88,16.32,19.82,27.85,1.07,6.38.28,12.73-2.36,19.03-2.65,6.3-9.05,15.35-19.21,27.15-5.26,6.11-8.36,10.83-9.32,14.16-.96,3.34-.7,8.98.77,16.92h0ZM473.99,213.38l-4.86-28.93,28.93-4.86,4.86,28.93-28.93,4.86h0Z"/>
+  </g>
+  <g class="st2">
+    <text class="st3" transform="translate(163.67 152.95)"><tspan x="0" y="0">Bleiker</tspan></text>
+  </g>
+  <g class="st2">
+    <text class="st1" transform="translate(210.61 205.71)"><tspan x="0" y="0">Quizzen</tspan></text>
+  </g>
+  <path class="st6" d="M94.47,243.77c152.65,26.32,315.83,23.69,489.53-7.9"/>
+</svg>
