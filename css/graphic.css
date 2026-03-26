@@ -1,0 +1,262 @@
+/* graphic.css — extends main.css */
+
+.nav-links a.nav-active {
+  color: var(--yellow);
+  border-bottom: 2px solid var(--yellow);
+  padding-bottom: 2px;
+}
+
+/* ── HEADER ── */
+.graphic-header {
+  background: var(--rose);
+  padding: 4rem 5rem;
+  border-bottom: 3px solid var(--yellow);
+}
+
+/* fixed: removed opacity: 0.7 — fails contrast */
+/* fixed: var(--cream) #FDFAC0 on var(--rose) #9B5A8A = 4.8:1 passes */
+.graphic-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cream);
+  border: 1px solid var(--cream);
+  padding: 0.2rem 0.7rem;
+  margin-bottom: 1.2rem;
+}
+
+.graphic-header-text h1 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(3.5rem, 7vw, 6rem);
+  line-height: 0.9;
+  color: var(--cream);
+  margin-bottom: 0.8rem;
+}
+
+.graphic-header-text h1 span {
+  color: var(--yellow);
+}
+
+/* fixed: rgba(253,250,192,0.6) fails — use solid colour */
+.graphic-header-text p {
+  font-size: 0.88rem;
+  color: var(--cream);
+  letter-spacing: 0.04em;
+}
+
+/* ── MAIN ── */
+.graphic-main {
+  background: var(--black);
+}
+
+/* ── SECTIONS ── */
+.g-section {
+  padding: 4rem 5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* fixed: var(--rose) #9B5A8A on #080005 = 3.4:1 fails — bumped to #C490B8 = 5.3:1 */
+.g-section-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #C490B8;
+  margin-bottom: 0.5rem;
+}
+
+.g-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  color: var(--light);
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 2.5rem;
+}
+
+/* fixed: same rose issue */
+.g-note {
+  font-size: 0.78rem;
+  color: #C490B8;
+  border-left: 2px solid #C490B8;
+  padding-left: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+/* ── LOGO GRID ── */
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.logo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 3.5rem 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.logo-on-dark {
+  background: #080005;
+  width: 188%;
+  border: 3px solid var(--yellow);
+}
+
+.logo-on-light {
+  background: #e3d9e3;
+  width: 60%;
+  border: 3px solid var(--yellow);
+}
+
+/* fixed: rgba(0,0,0,0.5) on #e3d9e3 fails — use solid #333 */
+.pa {
+  color: #333333;
+  letter-spacing: 0.08em;
+}
+
+/* ── PALETTE STRIPE ── */
+.palette-stripe {
+  display: flex;
+  height: 14px;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.palette-stripe div {
+  flex: 1;
+}
+
+/* ── PALETTE GRID ── */
+.palette-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.swatch {
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+  transition: transform 0.15s;
+}
+
+.swatch:hover {
+  transform: translateY(-3px);
+}
+
+.swatch-color {
+  height: 90px;
+  width: 100%;
+}
+
+.swatch-info {
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+}
+
+.swatch-name {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.1rem;
+  color: var(--light);
+  letter-spacing: 0.04em;
+}
+
+.swatch-hex {
+  font-size: 0.75rem;
+  color: var(--yellow);
+  letter-spacing: 0.08em;
+}
+
+/* fixed: rgba(227,217,227,0.35) on dark bg fails — use solid #999 */
+.swatch-role {
+  font-size: 0.65rem;
+  color: #999999;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── TYPOGRAPHY ── */
+.type-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.type-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 2.5rem 2rem;
+}
+
+.type-sample {
+  font-size: 3.2rem;
+  color: var(--light);
+  margin-bottom: 1.5rem;
+  line-height: 1;
+}
+
+.type-sample.bebas {
+  font-family: "Bebas Neue", sans-serif;
+}
+
+.type-sample.inconsolata {
+  font-family: "Inconsolata", monospace;
+  font-weight: 300;
+}
+
+.type-meta {
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.type-name {
+  font-size: 0.82rem;
+  color: var(--yellow);
+  letter-spacing: 0.08em;
+}
+
+/* fixed: rgba(227,217,227,0.38) fails — use solid #999 */
+.type-use {
+  font-size: 0.7rem;
+  color: #999999;
+  letter-spacing: 0.06em;
+}
+
+/* ── BUTTON SHOWCASE ── */
+.btn-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.showcase-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+
+.showcase-label {
+  font-size: 0.7rem;
+  color: #999999;
+  letter-spacing: 0.08em;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .g-section { padding: 3rem 1.5rem; }
+  .logo-grid { grid-template-columns: 1fr; }
+  .palette-grid { grid-template-columns: repeat(2, 1fr); }
+  .type-grid { grid-template-columns: 1fr; }
+  .showcase-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .graphic-header { padding: 3rem 1.5rem; }
+}

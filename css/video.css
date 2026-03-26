@@ -9,21 +9,20 @@
 
 /* ── VIDEO HEADER ── */
 .video-header {
-  background: var(--red);
+  background-color: #666666;
   padding: 4rem;
   border-bottom: 3px solid var(--yellow);
 }
 
 .video-tag {
   display: inline-block;
-  font-size: 0.65rem;
+  font-size: 0.90rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--cream);
+  color: #FFFFFF;
   border: 1px solid var(--cream);
   padding: 0.2rem 0.7rem;
   margin-bottom: 1.2rem;
-  opacity: 0.7;
 }
 
 .video-header-text h1 {
@@ -40,13 +39,13 @@
 
 .video-header-text p {
   font-size: 0.88rem;
-  color: rgba(253, 250, 192, 0.6);
+  color: #FFFFFF;
   letter-spacing: 0.04em;
 }
 
 /* ── VIDEO MAIN ── */
 .video-main {
-  background: var(--grey);
+  background-color: var(--black);
   min-height: 100vh;
   padding: 4rem;
 }
