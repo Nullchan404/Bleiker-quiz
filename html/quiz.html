@@ -6,6 +6,7 @@
   <title>Quiz</title>
   <link rel="stylesheet" href="../css/quiz.css">
   <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/leaderboard.css">
   <script src="../js/quiz.js" defer></script>
 </head>
 <body>
@@ -13,14 +14,14 @@
   <!-- NAV -->
   <nav>
     <a href="../index.html">
-    <img src="../img/logo.svg" alt="logo" class="logo"/>
+      <img src="../img/logo.svg" alt="logo" class="logo"/>
     </a>
     <ul class="nav-links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="./graphic.html">Graphic</a></li>
-        <li><a href="./quiz.html" class="nav-active">Quiz</a></li>
-        <li><a href="./video.html">Video</a></li>
-        <li><a href="./some.html">SoMe</a></li>
+      <li><a href="../index.html">Hjem</a></li>
+      <li><a href="./graphic.html">Grafisk</a></li>
+      <li><a href="./quiz.html" class="nav-active">Quiz</a></li>
+      <li><a href="./video.html">Video</a></li>
+      <li><a href="./some.html">SoMe</a></li>
     </ul>
   </nav>
 
@@ -34,12 +35,12 @@
     <div class="quiz-stats">
       <div class="stat">
         <div class="stat-num" id="q-current">1</div>
-        <div class="stat-label">of <span id="q-total">10</span></div>
+        <div class="stat-label">av <span id="q-total">13</span></div>
       </div>
       <div class="stat-divider"></div>
       <div class="stat">
         <div class="stat-num" id="q-score">0</div>
-        <div class="stat-label">points</div>
+        <div class="stat-label">poeng</div>
       </div>
     </div>
   </header>
@@ -50,34 +51,55 @@
   </div>
 
   <!-- QUIZ AREA -->
-  
+  <main class="quiz-main">
+
+    <!-- NAME SCREEN -->
+    <div class="name-screen" id="name-screen">
+      <h2>Skriv inn navnet ditt</h2>
+      <p>Resultatet ditt lagres i poengtavlen</p>
+      <input
+        class="name-input"
+        id="player-name"
+        type="text"
+        placeholder="Navnet ditt..."
+        maxlength="20"
+        autocomplete="off"
+      />
+      <button class="btn-start" id="btn-start" disabled>
+        Start quizzen →
+      </button>
+    </div>
 
     <!-- QUESTION CARD -->
-    <div class="quiz-card" id="quiz-card">
-      <p class="q-counter" id="q-counter">Question 1 of 10</p>
+    <div class="quiz-card" id="quiz-card" style="display:none">
+      <p class="q-counter" id="q-counter">Spørsmål 1 av 13</p>
       <h2 class="q-text" id="q-text"></h2>
-      <main class="quiz-main">
-        
-    <video id="q-video" width="100%" controls style="display:none;">
-  <source id="video-source" src="" type="video/mp4">
-</video>
 
-      <div class="q-answers" id="q-answers">
-      </div>
+      <video id="q-video" width="100%" controls style="display:none;">
+        <source id="video-source" src="" type="video/mp4">
+      </video>
+
+      <div class="q-answers" id="q-answers"></div>
 
       <p class="q-feedback" id="q-feedback"></p>
 
       <button class="btn-next" id="btn-next" style="display:none">
-        Next question →
+        Neste spørsmål →
       </button>
     </div>
 
     <!-- RESULT CARD -->
     <div class="result-card" id="result-card" style="display:none">
-      <p class="result-label">Your result</p>
-      <div class="result-score" id="result-score">0/10</div>
+      <p class="result-label">Resultatet ditt</p>
+      <div class="result-score" id="result-score">0/13</div>
       <p class="result-msg" id="result-msg"></p>
-      <button class="btn-restart" id="btn-restart">Play again</button>
+      <button class="btn-restart" id="btn-restart">Ta quizzen igjen</button>
+    </div>
+
+    <!-- LEADERBOARD -->
+    <div class="leaderboard" id="leaderboard" style="display:none">
+      <div class="leaderboard-title">Poengtavle</div>
+      <ul class="leaderboard-list" id="leaderboard-list"></ul>
     </div>
 
   </main>
@@ -87,18 +109,16 @@
     <div>
       <img src="../img/logo.svg" alt="logo" class="logo"/>
       <div class="f-logo">Bleiker</div>
-     <p class="f-sub">
-      dette er en quiz laged for a teste deg om bleiker vgs.
-    </p>
+      <p class="f-sub">dette er en quiz laged for a teste deg om bleiker vgs.</p>
     </div>
     <div class="f-col">
       <h5>Navigasjon</h5>
       <ul>
-            <li><a href="./quiz.html">Toppen</a></li>
-            <li><a href="./graphic.html">Graphic</a></li>
-            <li><a href="./html/quiz.html">Quiz</a></li>
-            <li><a href="./html/video.html">Video</a></li>
-        <li><a href="./html/some.html">SoMe</a></li>
+        <li><a href="../index.html">Hjem</a></li>
+        <li><a href="./graphic.html">Grafisk</a></li>
+        <li><a href="./quiz.html">Quiz</a></li>
+        <li><a href="./video.html">Video</a></li>
+        <li><a href="./some.html">SoMe</a></li>
       </ul>
     </div>
     <div class="f-col">
@@ -106,9 +126,8 @@
     </div>
   </footer>
   <div class="f-bottom">
-    <p>@ 2026 Bleiker Quiz</p>
+    <p>© 2026 Bleiker Quiz</p>
   </div>
-
 
 </body>
 </html>

@@ -72,11 +72,11 @@ const questions = [
     correct: 1,
   },
 
-  // ── IKT (MED VIDEO) ──
+  // ── IKT (M/ VIDEO) ──
   {
     question:
       "Hva er den riktige måten å koble seg på nettet den førstegangen?",
-    video: "../vidio/Sequence 01.mp4", 
+    video: "../vidio/Sequence 01.mp4",
     answers: ["FRID", "FRID-iot", "FRID-gjest", "mobil data"],
     correct: 1,
   },
@@ -124,8 +124,12 @@ const questions = [
 let currentIndex = 0;
 let score = 0;
 let answered = false;
+let playerName = "";
 
 // ── ELEMENTS ── //
+const nameScreen = document.getElementById("name-screen");
+const playerNameInput = document.getElementById("player-name");
+const btnStart = document.getElementById("btn-start");
 const qText = document.getElementById("q-text");
 const qAnswers = document.getElementById("q-answers");
 const qCounter = document.getElementById("q-counter");
@@ -140,13 +144,26 @@ const resultCard = document.getElementById("result-card");
 const resultScore = document.getElementById("result-score");
 const resultMsg = document.getElementById("result-msg");
 const btnRestart = document.getElementById("btn-restart");
-
-//  VIDEO
 const qVideo = document.getElementById("q-video");
 const videoSource = document.getElementById("video-source");
+const leaderboard = document.getElementById("leaderboard");
+const leaderboardList = document.getElementById("leaderboard-list");
 
-// ── INIT ── //
-function init() {
+// ── NAME SCREEN ── //
+playerNameInput.addEventListener("input", () => {
+  btnStart.disabled = playerNameInput.value.trim().length === 0;
+});
+
+playerNameInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && playerNameInput.value.trim().length > 0) startQuiz();
+});
+
+btnStart.addEventListener("click", startQuiz);
+
+function startQuiz() {
+  playerName = playerNameInput.value.trim();
+  nameScreen.style.display = "none";
+  quizCard.style.display = "block";
   qTotal.textContent = questions.length;
   loadQuestion();
 }
@@ -158,9 +175,7 @@ function loadQuestion() {
 
   qCounter.textContent = `Spørsmål ${currentIndex + 1} av ${questions.length}`;
   qCurrent.textContent = currentIndex + 1;
-
   progressFill.style.width = `${(currentIndex / questions.length) * 100}%`;
-
   qText.textContent = q.question;
 
   // VIDEO LOGIC
@@ -194,7 +209,6 @@ function selectAnswer(selectedIndex) {
   const q = questions[currentIndex];
   const buttons = qAnswers.querySelectorAll(".answer-btn");
 
-  // pause video when answering
   qVideo.pause();
 
   buttons.forEach((btn, index) => {
@@ -228,9 +242,7 @@ btnNext.addEventListener("click", () => {
 function showResult() {
   quizCard.style.display = "none";
   resultCard.style.display = "block";
-
   progressFill.style.width = "100%";
-
   resultScore.textContent = `${score}/${questions.length}`;
 
   const percent = score / questions.length;
@@ -241,7 +253,54 @@ function showResult() {
   else if (percent >= 0.4)
     resultMsg.textContent = "Ikke verst, men det er rom for forbedring.";
   else resultMsg.textContent = "Kanskje bruk litt mer tid i gangene...";
+
+  saveScore(playerName, score);
+  renderLeaderboard();
+  leaderboard.style.display = "block";
 }
+
+// ── LEADERBOARD ── //
+function getScores() {
+  return JSON.parse(localStorage.getItem("bleiker_scores") || "[]");
+}
+
+function saveScore(name, sc) {
+  const scores = getScores();
+  scores.push({ name, score: sc });
+  scores.sort((a, b) => b.score - a.score);
+  localStorage.setItem("bleiker_scores", JSON.stringify(scores));
+}
+
+function renderLeaderboard() {
+  const scores = getScores();
+  leaderboardList.innerHTML = "";
+
+  if (scores.length === 0) {
+    leaderboardList.innerHTML = `<li class="leaderboard-empty">Ingen resultater enda.</li>`;
+    return;
+  }
+
+  scores.forEach((entry, i) => {
+    const li = document.createElement("li");
+    li.classList.add("lb-row");
+    if (i === 0) li.classList.add("lb-top");
+
+    const medal = i === 0 ? "1" : i === 1 ? "2" : i === 2 ? "3" : i + 1;
+    const rankClass = i < 3 ? `lb-rank-${i + 1}` : "";
+
+    li.innerHTML = `
+      <span class="lb-rank ${rankClass}">${medal}</span>
+      <span class="lb-name">${entry.name}</span>
+      <span class="lb-score">${entry.score}/${questions.length}</span>
+    `;
+    leaderboardList.appendChild(li);
+  });
+}
+
+lbClear.addEventListener("click", () => {
+  localStorage.removeItem("bleiker_scores");
+  renderLeaderboard();
+});
 
 // ── RESTART ── //
 btnRestart.addEventListener("click", () => {
@@ -249,12 +308,10 @@ btnRestart.addEventListener("click", () => {
   score = 0;
   answered = false;
   qScore.textContent = 0;
+  playerNameInput.value = "";
+  btnStart.disabled = true;
 
   resultCard.style.display = "none";
-  quizCard.style.display = "block";
-
-  loadQuestion();
+  leaderboard.style.display = "none";
+  nameScreen.style.display = "block";
 });
-
-// ── START ── //
-init();
