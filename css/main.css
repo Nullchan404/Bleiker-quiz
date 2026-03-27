@@ -194,6 +194,7 @@ nav .logo {
   color: #ffffff;
   max-width: 480px;
   margin-bottom: 1.5rem;
+  text-align: left;
 }
 
 .btn-row {
@@ -209,11 +210,16 @@ nav .logo {
   text-decoration: none;
   display: inline-block;
   transition: background 0.15s;
-  min-height: 44px;
+  min-height: 30px;
+  min-width: 30px;
 }
 
 .btn-row:hover {
   background: var(--rose);
+}
+
+.btn-row p {
+  margin: 10;
 }
 
 .video-box {
@@ -325,9 +331,6 @@ footer .logo {
     padding: 1rem 1.5rem;
   }
 }
-
-
-
 
 @font-face {
   font-family: 'Bebas Neue';

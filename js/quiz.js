@@ -75,7 +75,7 @@ const questions = [
   // ── IKT (M/ VIDEO) ──
   {
     question:
-      "Hva er den riktige måten å koble seg på nettet den førstegangen?",
+      "Hva er den riktige måten å koble seg på nettet den første gangen?",
     video: "../vidio/Sequence 01.mp4",
     answers: ["FRID", "FRID-iot", "FRID-gjest", "mobil data"],
     correct: 1,
@@ -148,6 +148,7 @@ const qVideo = document.getElementById("q-video");
 const videoSource = document.getElementById("video-source");
 const leaderboard = document.getElementById("leaderboard");
 const leaderboardList = document.getElementById("leaderboard-list");
+const lbClear = document.getElementById("lb-clear");
 
 // ── NAME SCREEN ── //
 playerNameInput.addEventListener("input", () => {
@@ -183,6 +184,11 @@ function loadQuestion() {
     qVideo.style.display = "block";
     videoSource.src = q.video;
     qVideo.load();
+
+    // auto-scroll so video is visible
+    setTimeout(() => {
+      qVideo.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 100);
   } else {
     qVideo.style.display = "none";
     qVideo.pause();
@@ -304,14 +310,27 @@ lbClear.addEventListener("click", () => {
 
 // ── RESTART ── //
 btnRestart.addEventListener("click", () => {
+  // reset state
   currentIndex = 0;
   score = 0;
   answered = false;
   qScore.textContent = 0;
+
+  // reset video
+  qVideo.pause();
+  qVideo.style.display = "none";
+  videoSource.src = "";
+
+  // reset name input
   playerNameInput.value = "";
   btnStart.disabled = true;
 
+  // hide result + leaderboard, show name screen
   resultCard.style.display = "none";
   leaderboard.style.display = "none";
+  quizCard.style.display = "none";
   nameScreen.style.display = "block";
+
+  // scroll back to top
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
