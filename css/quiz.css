@@ -96,7 +96,7 @@
 
 /* ── QUIZ MAIN ── */
 .quiz-main {
-  background: var(--grey);
+  background: rgba(0,0,0,0.28);
   min-height: 60vh;
   padding: 4rem;
   display: flex;
